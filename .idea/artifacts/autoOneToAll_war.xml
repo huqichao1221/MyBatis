@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="autoOneToAll:war">
+    <output-path>$PROJECT_DIR$/../MyBatis/autoOneToAll/target</output-path>
+    <root id="archive" name="autoOneToAll.war">
+      <element id="artifact" artifact-name="autoOneToAll:war exploded" />
+    </root>
+  </artifact>
+</component>

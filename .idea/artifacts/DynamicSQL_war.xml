@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="DynamicSQL:war">
+    <output-path>$PROJECT_DIR$/../MyBatis/DynamicSQL/target</output-path>
+    <root id="archive" name="DynamicSQL.war">
+      <element id="artifact" artifact-name="DynamicSQL:war exploded" />
+    </root>
+  </artifact>
+</component>

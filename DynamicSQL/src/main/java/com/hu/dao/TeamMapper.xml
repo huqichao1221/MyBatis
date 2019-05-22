@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.dao.TeamDao">
+
+    <resultMap id="selectTeamp" type="team">
+
+        <id column="teamid" property="id"/>
+        <result column="teamname" property="name"/>
+        <collection property="PlayerList" ofType="player">
+            <id column="playerid" property="id"/>
+            <result column="playername" property="name"/>
+
+
+        </collection>
+
+
+    </resultMap>
+
+    <select id="selectTeamPlayer" resultMap="selectTeamp">
+
+        SELECT t.id teamid,t.name teamname,p.id playerid ,p.name playername FROM t_team t ,t_player p WHERE t.id=p.tid AND t.id=#{id}
+
+
+    </select>
+
+
+
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../MyBatis/AutoAllToAll/AutoAllToAll.iml" filepath="$PROJECT_DIR$/../MyBatis/AutoAllToAll/AutoAllToAll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DynamicSQL/DynamicSQL.iml" filepath="$PROJECT_DIR$/DynamicSQL/DynamicSQL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyBatis.iml" filepath="$PROJECT_DIR$/MyBatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MyBatis/autoAllToone/autoAllToone.iml" filepath="$PROJECT_DIR$/../MyBatis/autoAllToone/autoAllToone.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MyBatis/autoOneToAll/autoOneToAll.iml" filepath="$PROJECT_DIR$/../MyBatis/autoOneToAll/autoOneToAll.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proxyMyBatis/proxyMyBatis.iml" filepath="$PROJECT_DIR$/proxyMyBatis/proxyMyBatis.iml" />
+    </modules>
+  </component>
+</project>

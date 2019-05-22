@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="AutoAllToAll" />
+        <module name="autoAllToone" />
+        <module name="autoOneToAll" />
+        <module name="DynamicSQL" />
+        <module name="proxyMyBatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="AutoAllToAll" target="1.8" />
+      <module name="autoAllToone" target="1.8" />
+      <module name="autoOneToAll" target="1.8" />
+      <module name="DynamicSQL" target="1.8" />
+      <module name="MyBatis" target="1.8" />
+      <module name="proxyMyBatis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

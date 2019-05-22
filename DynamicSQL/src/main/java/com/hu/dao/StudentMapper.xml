@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.dao.StudentDao">
+    <!--parameterType可省略-->
+   <select id="selectIf" resultType="student">
+
+       SELECT id,name,age,score
+       FROM  t_student
+       WHERE 1=1
+       <if test="name!=null || name!=''">
+
+           AND name LIKE  '%' #{name} '%'
+
+       </if>
+       <if test="age>0">
+           AND  age >#{age}
+
+       </if>
+   </select>
+
+    <select id="selectWhere"  resultType="student">
+
+        SELECT  id,name,age,score
+        FROM t_student
+        <where>
+
+            <if test="name!=null || name!=''">
+
+                AND name LIKE  '%' #{name} '%'
+
+            </if>
+            <if test="age>0">
+                AND  age >#{age}
+
+            </if>
+
+        </where>
+    </select>
+    <select id="selectChose">
+
+        SELECT  id,name,age,score
+        FROM t_student
+        <where>
+            <choose>
+
+                <when test="name!=null">
+
+                </when>
+                <otherwise>
+
+                </otherwise>
+            </choose>
+
+
+        </where>
+    </select>
+    
+    <sql id="select">
+        SELECT  id,name,age,score
+        FROM t_student
+    </sql>
+    <select id="selectForEach" resultType="student">
+
+        <include refid="select"/>
+
+         <if test="array != null and array.length>0">
+        WHERE id IN
+        <foreach collection="array" open="(" close=")" item="id" separator=",">
+            #{id}
+        </foreach>
+    </if>
+
+    </select>
+</mapper>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.dao.StudentDao">
+    <!--parameterType可省略-->
+
+    <cache/>
+    <insert id="insertStudent" parameterType="student">
+        INSERT INTO t_student(name,age,score) VALUES (#{name},#{age},#{score})
+        <selectKey resultType="int" keyProperty="id" order="AFTER">
+
+            SELECT  @@IDENTITY
+        </selectKey>
+    </insert>
+
+    <delete id="deletStudent">
+
+        DELETE  FROM  t_student WHERE  id=#{id}
+
+    </delete>
+
+    <update id="updateStudent">
+
+        UPDATE t_student SET name =#{name },age=#{age},score=#{score} WHERE id=#{id}
+    </update>
+
+    <select id="selectAllStudent" resultType="student">
+
+        SELECT id,name,age,score FROM  t_student
+    </select>
+
+    <select id="selectStudentById"  resultType="student">
+
+        SELECT id,name,age,score FROM t_student WHERE  id=#{id}
+    </select>
+
+    <select id="selectByName" resultType="student">
+
+        SELECT  id,name,age,score FROM t_student WHERE  name  LIKE '%' #{name} '%'
+        <!--
+        SELECT  id,name,age,score FROM t_student WHERE  LIKE '%${value}%'
+        -->
+    </select>
+
+    <!--  数据库和java bean 字段不匹配 两种解决方法  1  设置别名 2 使用结果集
+    <select id="selectStudentByIDMatch" resultType="student">
+        SELECT  id,name,age,score,password pwd FROM t_student WHERE  id=#{id}
+    </select>
+
+    -->
+    <!--  使用结果集-->
+    <resultMap id="seletMatch" type="student">
+
+        <id column="id" property="id"/>
+        <result column="passrod" property="pwd"/>
+
+    </resultMap>
+
+    <select id="selectStudentByIdMatch" resultMap="seletMatch">
+
+         SELECT  id,name,age,score,password  FROM t_student WHERE  id=#{id}
+    </select>
+</mapper>

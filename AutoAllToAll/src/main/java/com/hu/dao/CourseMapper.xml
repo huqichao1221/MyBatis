@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.dao.CourseDao">
+
+
+    <resultMap id="courseMapper" type="course">
+
+        <id property="id" column="cid"/>
+        <result property="name" column="cname"/>
+        <collection property="students" ofType="student">
+            <id property="id" column="sid"/>
+            <result property="name" column="sname"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="selectAllToAll" resultMap="courseMapper">
+        SELECT
+            c.id cid, c.name cname, s.id sid, s.name sname
+        FROM
+            t_course c,
+            t_student s,
+            t_student_course sc
+        WHERE
+            c.id = #{id}
+            AND s.id = sc.sid
+            AND c.id = sc.cid;
+    </select>
+
+    <resultMap id="courseMapperStudent" type="student">
+
+        <id property="id" column="sid"/>
+        <result property="name" column="sname"/>
+        <collection property="courses" ofType="student">
+            <id property="id" column="cid"/>
+            <result property="name" column="cname"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="selectAllToAllStudent" resultMap="courseMapperStudent">
+        SELECT
+        c.id cid, c.name cname, s.id sid, s.name sname
+        FROM
+        t_course c,
+        t_student s,
+        t_student_course sc
+        WHERE
+        s.id = #{id}
+        AND s.id = sc.sid
+        AND c.id = sc.cid;
+    </select>
+
+</mapper>

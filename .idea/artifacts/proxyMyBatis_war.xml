@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="proxyMyBatis:war">
+    <output-path>$PROJECT_DIR$/../MyBatis/proxyMyBatis/target</output-path>
+    <root id="archive" name="proxyMyBatis.war">
+      <element id="artifact" artifact-name="proxyMyBatis:war exploded" />
+    </root>
+  </artifact>
+</component>

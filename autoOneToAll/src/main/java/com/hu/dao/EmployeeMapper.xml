@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.dao.EmployeeDao">
+    
+    <resultMap id="selectAuto" type="employee">
+
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="job" property="job"/>
+        <collection property="employeelist" ofType="team" select="selectAutoOneToKey" column="id"/>
+
+    </resultMap>
+    
+    
+    <select id="selectAutoOneToKey" resultMap="selectAuto">
+        
+        SELECT  id,name,job,mgr
+        FROM t_employee
+        WHERE mgr=#{mgr}
+        
+    </select>
+    <select id="selectAutoOneToKeySelf" resultMap="selectAuto">
+
+        SELECT  id,name,job,mgr
+        FROM t_employee
+        WHERE id=#{id}
+
+    </select>
+  
+</mapper>
